@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Work Days Tracker</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="wrap">
+  <section id="auth" class="card auth">
+    <h1 id="authTitle">התחברות</h1>
+    <form id="authForm">
+      <label>שם משתמש<input id="username" type="text" autocomplete="username" required></label>
+      <label>סיסמה<input id="password" type="password" autocomplete="current-password" minlength="6" required></label>
+      <p id="authError" class="error"></p>
+      <button id="authBtn" type="submit">התחבר</button>
+    </form>
+    <button id="toggleAuth" class="link" type="button">אין לך חשבון? הרשמה</button>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <header class="top">
+      <div><h1>ימי העבודה שלי</h1><p>שלום <b id="hello"></b></p></div>
+      <button id="logout" class="danger" type="button">התנתק</button>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>הוסף יום עבודה</h2>
+        <label>תאריך<input id="workDate" type="date" value="" autocomplete="off"></label>
+        <button id="addDay" type="button">הוסף יום</button>
+        <p id="dayMsg" class="error"></p>
+      </section>
+
+      <section class="card">
+        <h2>שכר יומי</h2>
+        <label>כמה אתה מרוויח ביום (₪)<input id="salary" type="number" min="0" step="0.01"></label>
+        <button id="saveSalary" type="button">שמור שכר</button>
+        <p id="salaryMsg" class="success"></p>
+      </section>
+    </div>
+
+    <section class="card">
+      <div class="grid">
+        <label>חודש<select id="month"></select></label>
+        <label>שנה<select id="year"></select></label>
+      </div>
+      <div class="summary">
+        <div><span>ימי עבודה</span><b id="count">0</b></div>
+        <div><span>שכר ליום</span><b id="salaryView">₪0</b></div>
+        <div><span>מגיע לך</span><b id="total">₪0</b></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>ימי עבודה</h2>
+      <div id="days"></div>
+    </section>
+  </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
